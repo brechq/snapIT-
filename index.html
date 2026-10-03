@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>snapIT!</title>
+  <!-- Neo-Brutalist Crafted SVG Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23FFDE59'/><rect x='4' y='8' width='24' height='19' fill='%23111111'/><rect x='8' y='4' width='7' height='4' fill='%23111111'/><circle cx='16' cy='17.5' r='5.5' fill='%23F5F0E8'/><circle cx='16' cy='17.5' r='3.5' fill='%23111111'/><circle cx='17.5' cy='16' r='1.2' fill='%23FFDE59'/><circle cx='22.5' cy='11.5' r='1.8' fill='%23FF6B6B'/></svg>" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOP NAVIGATION -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" id="nav-brand">
+        <!-- Crafted Neo-Brutalist Camera Icon -->
+        <svg class="brand-icon" width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="7" width="26" height="21" fill="#FFDE59" stroke="#111111" stroke-width="2.5"/>
+          <rect x="8" y="3" width="7" height="4" fill="#111111" stroke="#111111" stroke-width="1.5"/>
+          <circle cx="16" cy="17.5" r="6" fill="#111111"/>
+          <circle cx="16" cy="17.5" r="4.2" fill="#F5F0E8"/>
+          <circle cx="17.5" cy="16" r="1.5" fill="#111111"/>
+          <circle cx="23.5" cy="11.5" r="1.8" fill="#FF6B6B" stroke="#111111" stroke-width="1"/>
+        </svg>
+        <span class="logo-text">snapIT!</span>
+      </a>
+      <nav class="nav-links">
+        <button class="nav-btn active" id="nav-home-btn">TEMPLATES</button>
+        <button class="nav-btn" id="nav-camera-btn">CAMERA</button>
+        <a href="https://sociabuzz.com/brechq/tribe" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-support">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          SUPPORT
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="main-content">
+
+    <!-- VIEW 1: HOME & TEMPLATE SELECTION -->
+    <section id="view-home" class="view-section active">
+      <div class="hero-banner">
+        <h1 class="hero-title-wrap">
+          <span class="hero-brand-box">snapIT!</span>
+        </h1>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-lg" id="btn-hero-start">START SHOOTING</button>
+          <a href="https://sociabuzz.com/brechq/tribe" target="_blank" rel="noopener noreferrer" class="btn btn-support btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            SUPPORT PROJECT
+          </a>
+        </div>
+      </div>
+
+      <!-- TEMPLATE PICKER -->
+      <div class="template-section" id="templates-anchor">
+        <div class="section-header">
+          <h2 class="section-title">SELECT A TEMPLATE</h2>
+          <div class="filter-bar">
+            <button class="filter-chip active" data-filter="all">ALL (<span id="count-all">0</span>)</button>
+            <button class="filter-chip" data-filter="1">1 PHOTO</button>
+            <button class="filter-chip" data-filter="2-3">2-3 PHOTOS</button>
+            <button class="filter-chip" data-filter="4">4 PHOTOS</button>
+            <button class="filter-chip" data-filter="6+">6-8 PHOTOS</button>
+          </div>
+        </div>
+
+        <!-- TEMPLATE GRID -->
+        <div class="template-grid" id="template-grid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: CAMERA CAPTURE -->
+    <section id="view-camera" class="view-section">
+      <div class="camera-wrapper">
+        <!-- Top Toolbar -->
+        <div class="camera-topbar">
+          <button class="btn btn-sm btn-outline" id="btn-camera-back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            BACK
+          </button>
+          <div class="camera-status-pill" id="camera-progress-pill">
+            PHOTO <span id="current-photo-num">1</span> / <span id="total-photos-num">4</span>
+          </div>
+          <div class="switch-cam-container">
+            <button class="btn btn-sm btn-outline" id="btn-flip-camera" title="Switch Cam: Ganti kamera depan atau belakang">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 10c0-4.418-3.582-8-8-8s-8 3.582-8 8v2l-3-3m0 6l3-3m16 0l-3 3m0-6v-2c0 4.418-3.582 8-8 8s-8-3.582-8-8"/></svg>
+              SWITCH CAM
+            </button>
+            <span class="switch-cam-desc">Ganti Kamera Depan / Belakang</span>
+          </div>
+        </div>
+
+        <!-- Camera Frame & Preview Box -->
+        <div class="camera-frame-box">
+          <video id="camera-video" autoplay playsinline muted></video>
+          <div class="camera-flash" id="camera-flash"></div>
+          
+          <!-- Large Countdown Overlay -->
+          <div class="countdown-overlay" id="countdown-overlay">
+            <span class="countdown-number" id="countdown-text">3</span>
+          </div>
+
+          <!-- Permission / Error State Card inside camera box -->
+          <div class="camera-error-box" id="camera-error-card">
+            <div class="error-badge">CAMERA ACCESS NEEDED</div>
+            <h3 class="error-title">Allow camera access to take photos</h3>
+            <p class="error-desc" id="camera-error-msg">Allow camera access in your browser settings to use snapIT!.</p>
+            <button class="btn btn-primary" id="btn-retry-camera">RETRY CAMERA</button>
+          </div>
+        </div>
+
+        <!-- Shot thumbnails bar -->
+        <div class="shots-preview-bar">
+          <div class="shots-title">SESSION PROGRESS:</div>
+          <div class="shots-slots-row" id="shots-slots-container">
+            <!-- Thumbnail slots populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="camera-bottombar">
+          <div class="timer-select-group">
+            <label class="timer-label">COUNTDOWN:</label>
+            <button class="btn btn-sm btn-timer active" data-timer="3">3s</button>
+            <button class="btn btn-sm btn-timer" data-timer="5">5s</button>
+          </div>
+
+          <button class="btn btn-primary btn-xl" id="btn-capture-trigger">
+            <span class="shutter-circle"></span>
+            <span id="capture-btn-text">START SESSION</span>
+          </button>
+
+          <button class="btn btn-sm btn-secondary" id="btn-restart-session" style="visibility: hidden;">
+            RESET
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: RESULT SCREEN -->
+    <section id="view-result" class="view-section">
+      <div class="result-wrapper">
+        <div class="result-header">
+          <h2 class="result-title">YOUR PHOTO BOOTH STRIP</h2>
+          <p class="result-sub">Ready to save! You can adjust frame color, photo filter, or retake.</p>
+        </div>
+
+        <!-- Result Canvas Stage & Controls -->
+        <div class="result-layout">
+          <!-- Canvas Container with Interactive Sticker Overlay -->
+          <div class="canvas-stage">
+            <div class="canvas-shadow-wrap" id="canvas-container">
+              <canvas id="result-canvas"></canvas>
+              <div class="sticker-interactive-layer" id="sticker-layer"></div>
+            </div>
+          </div>
+
+          <!-- Customization & Actions Sidebar -->
+          <div class="result-panel">
+            <!-- Stickers & Doodles Box -->
+            <div class="panel-box">
+              <div class="panel-heading-row">
+                <h3 class="panel-heading" style="margin-bottom:0; border-bottom:none; padding-bottom:0;">STICKERS & DOODLES</h3>
+                <button class="btn btn-sm btn-outline" id="btn-clear-stickers" style="display:none;">CLEAR ALL</button>
+              </div>
+              <p class="panel-tip">Tap sticker to place on photo, then drag & resize!</p>
+              
+              <div class="sticker-palette" id="sticker-palette">
+                <!-- Populated dynamically by app.js -->
+              </div>
+            </div>
+
+            <div class="panel-box">
+              <h3 class="panel-heading">STYLE & COLOR</h3>
+              
+              <!-- Color Palettes -->
+              <div class="control-group">
+                <label class="control-label">FRAME BACKGROUND</label>
+                <div class="color-swatches" id="color-swatches">
+                  <button class="swatch-btn active" data-color="#111111" style="background:#111111;" title="Ink Black"></button>
+                  <button class="swatch-btn" data-color="#F5F0E8" style="background:#F5F0E8;" title="Cream"></button>
+                  <button class="swatch-btn" data-color="#FFFFFF" style="background:#FFFFFF;" title="Pure White"></button>
+                  <button class="swatch-btn" data-color="#FFDE59" style="background:#FFDE59;" title="Pop Yellow"></button>
+                  <button class="swatch-btn" data-color="#FF6B6B" style="background:#FF6B6B;" title="Coral Red"></button>
+                  <button class="swatch-btn" data-color="#7FE3A1" style="background:#7FE3A1;" title="Mint Green"></button>
+                  <button class="swatch-btn" data-color="#6C63FF" style="background:#6C63FF;" title="Electric Purple"></button>
+                  <button class="swatch-btn" data-color="#FFB5E8" style="background:#FFB5E8;" title="Pastel Pink"></button>
+                </div>
+              </div>
+
+              <!-- Photo Filters -->
+              <div class="control-group">
+                <label class="control-label">PHOTO FILTER</label>
+                <div class="filter-buttons" id="filter-buttons">
+                  <button class="btn btn-sm btn-filter active" data-filter="none">NORMAL</button>
+                  <button class="btn btn-sm btn-filter" data-filter="bw">B&W</button>
+                  <button class="btn btn-sm btn-filter" data-filter="vintage">WARM</button>
+                  <button class="btn btn-sm btn-filter" data-filter="cold">COOL</button>
+                </div>
+              </div>
+
+              <!-- Date Stamp Toggle -->
+              <div class="control-group">
+                <label class="control-label">HEADER & TIMESTAMP</label>
+                <div class="stamp-toggle-row">
+                  <button class="btn btn-sm btn-outline active" id="btn-toggle-stamp">SHOW DATE & LOGO</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Primary Actions -->
+            <div class="panel-box action-box">
+              <button class="btn btn-primary btn-xl btn-block" id="btn-download-png">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                DOWNLOAD PNG
+              </button>
+              <div class="action-grid-2">
+                <button class="btn btn-secondary btn-block" id="btn-retake">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+                  RETAKE
+                </button>
+                <button class="btn btn-outline btn-block" id="btn-change-template">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="0"/><path d="M3 9h18M9 21V9"/></svg>
+                  TEMPLATES
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- HIDDEN SNAP CANVAS FOR CAMERA CAPTURES -->
+  <canvas id="raw-capture-canvas" style="display:none;"></canvas>
+
+  <!-- MINIMAL FOOTER -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="7" width="26" height="21" fill="#FFDE59" stroke="#111111" stroke-width="2.5"/>
+          <rect x="8" y="3" width="7" height="4" fill="#111111" stroke="#111111" stroke-width="1.5"/>
+          <circle cx="16" cy="17.5" r="5" fill="#111111"/>
+          <circle cx="16" cy="17.5" r="3.2" fill="#F5F0E8"/>
+        </svg>
+        <span>snapIT!</span>
+      </div>
+      <div class="footer-actions">
+        <a href="https://sociabuzz.com/brechq/tribe" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-support">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          SUPPORT PROJECT
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
