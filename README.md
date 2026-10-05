@@ -25,5 +25,3 @@ npx serve
 - Pure Vanilla HTML5, CSS3, and JavaScript
 - Zero external libraries or frameworks
 - Native MediaDevices and Canvas APIs
-
-RAHH
